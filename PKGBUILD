@@ -1,6 +1,6 @@
 # Maintainer: fox <pixilreal@gmail.com>
 pkgname=servo++
-pkgver=1.0
+pkgver=1.1
 pkgrel=1
 pkgdesc="C++ implementation of the servo programming language"
 arch=('x86_64')
@@ -8,12 +8,12 @@ url="https://github.com/semicolon-servo/spp"
 license=('MIT License')
 depends=('gcc-libs')
 makedepends=('gcc' 'make')
-source=("https://github.com/semicolon-servo/spp/archive/refs/tags/v1.0.tar.gz")
+source=("https://github.com/semicolon-servo/spp/archive/refs/tags/v${pkgver}.tar.gz")
 
 build() {
     cd "${srcdir}"
-    if [ -d "spp-1.0" ]; then
-        cd spp-1.0/
+    if [ -d "spp-${pkgver}" ]; then
+        cd spp-${pkgver}/
     fi
     make clean || true
     make
@@ -21,8 +21,8 @@ build() {
 
 package() {
     cd "${srcdir}"
-    if [ -d "spp-1.0" ]; then
-        cd spp-1.0/
+    if [ -d "spp-${pkgver}" ]; then
+        cd spp-${pkgver}/
     fi
     install -Dm755 servo_cpp "${pkgdir}/usr/bin/servo_cpp"
 }
