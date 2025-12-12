@@ -1,6 +1,6 @@
 # Maintainer: fox <pixilreal@gmail.com>
 pkgname=servo++
-pkgver=1.0.0
+pkgver=1.0
 pkgrel=1
 pkgdesc="C++ implementation of the servo programming language"
 arch=('x86_64')
@@ -32,3 +32,4 @@ package() {
     install -Dm755 servo_cpp "${pkgdir}/usr/bin/servo_cpp"
 }
 
+sha256sums=('76e5676b614cc2194113972e486d90c9bd0651123a46992a33b7e4d1f83c6590')
