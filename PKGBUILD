@@ -8,7 +8,7 @@ url="https://github.com/semicolon-servo/spp"
 license=('MIT License')
 depends=('gcc-libs')
 makedepends=('gcc' 'make')
-source=("${pkgname}-${pkgver}.tar.gz")
+source=("https://github.com/semicolon-servo/spp/archive/refs/tags/v1.0.tar.gz")
 sha256sums=('SKIP')
 
 build() {
