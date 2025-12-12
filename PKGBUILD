@@ -2,19 +2,17 @@
 pkgname=servo++
 pkgver=1.0.0
 pkgrel=1
-pkgdesc="C++ implementation of the servo templating language"
+pkgdesc="C++ implementation of the servo programming language"
 arch=('x86_64')
-url="https://github.com/yourusername/servo"
-license=('custom')
+url="https://github.com/semicolon-servo/spp"
+license=('MIT License')
 depends=('gcc-libs')
 makedepends=('gcc' 'make')
-# For local builds from current directory, use: makepkg --noextract
 source=("${pkgname}-${pkgver}.tar.gz")
 sha256sums=('SKIP')
 
 build() {
     cd "${srcdir}"
-    # Find servo/spp directory (works with extracted tarball or --noextract)
     if [ -d "servo/spp" ]; then
         cd servo/spp
     elif [ -d "${pkgname}-${pkgver}/servo/spp" ]; then
@@ -26,7 +24,6 @@ build() {
 
 package() {
     cd "${srcdir}"
-    # Find servo/spp directory (works with extracted tarball or --noextract)
     if [ -d "servo/spp" ]; then
         cd servo/spp
     elif [ -d "${pkgname}-${pkgver}/servo/spp" ]; then
