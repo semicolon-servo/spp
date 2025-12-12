@@ -1,6 +1,6 @@
 # Maintainer: fox <pixilreal@gmail.com>
 pkgname=servo++
-pkgver=1.1
+pkgver=1.2
 pkgrel=1
 pkgdesc="C++ implementation of the servo programming language"
 arch=('x86_64')
