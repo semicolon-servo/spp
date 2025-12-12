@@ -9,7 +9,6 @@ license=('MIT License')
 depends=('gcc-libs')
 makedepends=('gcc' 'make')
 source=("https://github.com/semicolon-servo/spp/archive/refs/tags/v1.0.tar.gz")
-sha256sums=('SKIP')
 
 build() {
     cd "${srcdir}"

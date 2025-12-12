@@ -9,6 +9,6 @@ pkgbase = servo++
 	makedepends = make
 	depends = gcc-libs
 	source = https://github.com/semicolon-servo/spp/archive/refs/tags/v1.0.tar.gz
-	sha256sums = SKIP
+	sha256sums = 76e5676b614cc2194113972e486d90c9bd0651123a46992a33b7e4d1f83c6590
 
 pkgname = servo++
