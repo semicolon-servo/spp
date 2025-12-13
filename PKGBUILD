@@ -1,30 +1,42 @@
-# Maintainer: fox <pixilreal@gmail.com>
-pkgname=spp
-pkgver=1.4
+# Maintainer: Your Name <your.email@example.com>
+pkgname=servo-spp-git
+pkgver=r1.0.0
 pkgrel=1
-pkgdesc="C++ implementation of the servo programming language"
+pkgdesc="Official semicolon servo++/spp implementation - A C++ implementation of the Servo programming language"
 arch=('x86_64')
 url="https://github.com/semicolon-servo/spp"
-license=('MIT License')
-depends=('gcc-libs')
-makedepends=('gcc' 'make')
-source=("https://github.com/semicolon-servo/spp/archive/refs/tags/v${pkgver}.tar.gz")
+license=('unknown')
+depends=('gcc' 'bc')
+makedepends=('git' 'make' 'gcc')
+provides=('servo-spp' 'servocomp')
+conflicts=('servo-spp')
+source=("git+https://github.com/semicolon-servo/spp.git")
+sha256sums=('SKIP')
+
+pkgver() {
+  cd "$srcdir/spp"
+  ( set -o pipefail
+    git describe --long 2>/dev/null | sed 's/\([^-]*-g\)/r\1/;s/-/./g' ||
+    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+  )
+}
 
 build() {
-    cd "${srcdir}"
-    if [ -d "spp-${pkgver}" ]; then
-        cd spp-${pkgver}/
-    fi
-    make clean || true
-    make
+  cd "$srcdir/spp/servo"
+  make
 }
 
 package() {
-    cd "${srcdir}"
-    if [ -d "spp-${pkgver}" ]; then
-        cd spp-${pkgver}/
-    fi
-    install -Dm755 servo_cpp "${pkgdir}/usr/bin/servo_cpp"
+  cd "$srcdir/spp/servo"
+  install -Dm755 servocomp "$pkgdir/usr/bin/servocomp"
+  
+  if [ -d "reach" ]; then
+    install -d "$pkgdir/usr/share/servo/reach"
+    cp -r reach/* "$pkgdir/usr/share/servo/reach/"
+  fi
+  
+  if [ -d "globalheaders" ]; then
+    install -d "$pkgdir/usr/share/servo/globalheaders"
+    cp -r globalheaders/* "$pkgdir/usr/share/servo/globalheaders/"
+  fi
 }
-
-sha256sums=('55faa2b7834cfcc334bee6b8adb770e9697e83338fea2d8dda23c823a703fc9d')
