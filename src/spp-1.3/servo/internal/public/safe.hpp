@@ -44,7 +44,7 @@ public:
             size_t pos = pretty_name.find("ERROR");
             if (pos != std::string::npos) pretty_name.replace(pos, 5, "FATAL");
 
-            std::cout << "\033[1m[servo++]\033[0;91m got '" << pretty_name << "' from function in '" 
+            std::cout << "\033[1m[servo@spp]\033[0;91m got '" << pretty_name << "' from function in '" 
                       << (file_name.empty() ? "<unknown>" : file_name) << "':\n      - " 
                       << error.what() << "\033[0m" << std::endl;
 
