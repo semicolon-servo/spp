@@ -1,4 +1,4 @@
-# Maintainer: Your Name <your.email@example.com>
+# Maintainer: foxmakes <pixilreal@gmail.com>
 pkgname=servo-spp-git
 pkgver=r19.8deaa29
 pkgrel=1
