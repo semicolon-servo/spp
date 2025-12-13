@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include <string>
-#include <functional>
 #include <exception>
 #include <cstdlib>
 #include <typeinfo>
