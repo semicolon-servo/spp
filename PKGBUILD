@@ -22,13 +22,13 @@ pkgver() {
 }
 
 build() {
-  cd "$srcdir/spp/servo"
+  cd "$srcdir/spp"
   make
 }
 
 package() {
-  cd "$srcdir/spp/servo"
-  install -Dm755 servocomp "$pkgdir/usr/bin/servocomp"
+  cd "$srcdir/spp"
+  install -Dm755 servo_cpp "$pkgdir/usr/bin/servo_cpp"
   
   if [ -d "reach" ]; then
     install -d "$pkgdir/usr/share/servo/reach"
