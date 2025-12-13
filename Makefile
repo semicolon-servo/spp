@@ -3,7 +3,7 @@ CXXFLAGS = -std=c++17 -Wall -I. -g
 
 SRCS = $(shell find servo -name "*.cpp")
 OBJS = $(SRCS:.cpp=.o)
-TARGET = servo_cpp
+TARGET = servocomp
 
 all: $(TARGET)
 

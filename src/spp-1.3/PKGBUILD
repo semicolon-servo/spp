@@ -24,7 +24,7 @@ package() {
     if [ -d "spp-${pkgver}" ]; then
         cd spp-${pkgver}/
     fi
-    install -Dm755 servo_cpp "${pkgdir}/usr/bin/servo_cpp"
+    install -Dm755 servocomp "${pkgdir}/usr/bin/servocomp"
 }
 
 sha256sums=('76e5676b614cc2194113972e486d90c9bd0651123a46992a33b7e4d1f83c6590')
